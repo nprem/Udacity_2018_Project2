@@ -183,16 +183,11 @@ function closeCards() {
     }, 1000);
 }
 
-function resetGrid() {
-    cards.forEach(function(card) {
-        card.classList.remove('open', 'show', 'match');
-        card.addEventListener('click', selectCard);
-    });
-
-    moves = 0;
-    counter.innerText = moves;
-
-    var matchedCards = [];
+function resetGrid() { 
+    //change to re-shuffle cards during reset...
+    initGame();
+    cards = document.querySelectorAll('.card');
+    cards.forEach(card => card.addEventListener('click', selectCard));
 
     resetTimer();
 
